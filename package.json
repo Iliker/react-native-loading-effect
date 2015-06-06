@@ -11,12 +11,14 @@
     "url": "https://github.com/Iliker/react-native-loading-effect.git"
   },
   "keywords": [
+    "react-component",
     "react-native",
-    "react",
-    "native",
-    "wait",
+    "ios",
     "loading"
   ],
+  "dependencies": {
+    "react-native": "^0.4"
+  },
   "author": "iliker",
   "license": "ISC"
 }
