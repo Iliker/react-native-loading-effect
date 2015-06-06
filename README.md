@@ -1,4 +1,5 @@
 # react-native-loading-effect
+![Demo](https://github.com/Iliker/react-native-loading-effect/blob/master/demo.png)
 
 ## Install
 ```shell
