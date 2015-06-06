@@ -86,7 +86,7 @@ var LoadingEffect = React.createClass({
         <View style={styles.container}>
           <View style={customStyles.overlay}>
             <ActivityIndicatorIOS color={this.props.color} size={this.props.size} />
-            <Text style={customStyles.text}>正在加载</Text>
+            <Text style={customStyles.text}>Loading</Text>
           </View>
         </View>
       )
