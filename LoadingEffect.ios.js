@@ -44,6 +44,7 @@ var LoadingEffect = React.createClass({
     overlayWidth: React.PropTypes.number,
     overlayHeight: React.PropTypes.number,
     overlayColor: React.PropTypes.string,
+    text: React.PropTypes.string,
     textColor: React.PropTypes.string,
     textFontSize: React.PropTypes.number,
   },
@@ -56,6 +57,7 @@ var LoadingEffect = React.createClass({
       overlayColor: 'rgba(0,0,0,0.6)',
       size: "large",
       color: "gray",
+      text: 'Loading',
       textColor: '#eeeeee',
       textFontSize: 14
     };
@@ -86,7 +88,7 @@ var LoadingEffect = React.createClass({
         <View style={styles.container}>
           <View style={customStyles.overlay}>
             <ActivityIndicatorIOS color={this.props.color} size={this.props.size} />
-            <Text style={customStyles.text}>Loading</Text>
+            <Text style={customStyles.text}>{this.props.text}</Text>
           </View>
         </View>
       )

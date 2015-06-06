@@ -44,5 +44,6 @@ var YourComponent = React.createClass({
 - **`overlayWidth`** _(Number)_ - overlay width.
 - **`overlayHeight`** _(Number)_ - overlay height.
 - **`overlayColor`** _(String)_ - overlay color.
+- **`text`** _(String)_ - text. Default Loading.
 - **`textColor`** _(String)_ - text color.
 - **`textFontSize`** _(Number)_ - text font size.
