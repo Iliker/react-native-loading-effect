@@ -1,13 +1,14 @@
 'use strict';
 
 var React = require('react-native');
+var ProgressBar = require('ProgressBarAndroid');
 
 var {
-  StyleSheet,
-  ActivityIndicatorIOS,
-  View,
-  Text
-} = React;
+    StyleSheet,
+    ActivityIndicatorIOS,
+    View,
+    Text,Platform
+    } = React;
 
 
 var LoadingEffectMixin = {
@@ -55,8 +56,8 @@ var LoadingEffect = React.createClass({
       overlayWidth: 80,
       overlayHeight: 80,
       overlayColor: 'rgba(0,0,0,0.6)',
-      size: "large",
-      color: "gray",
+      size: (Platform.OS === "ios") ? "large" : "SmallInverse",
+      color: (Platform.OS === "ios") ? "gray" : "white",
       text: 'Loading',
       textColor: '#eeeeee',
       textFontSize: 14
@@ -85,12 +86,14 @@ var LoadingEffect = React.createClass({
       return (<View />)
     } else {
       return (
-        <View style={styles.container}>
-          <View style={customStyles.overlay}>
-            <ActivityIndicatorIOS color={this.props.color} size={this.props.size} />
-            <Text style={customStyles.text}>{this.props.text}</Text>
+          <View style={styles.container}>
+            <View style={customStyles.overlay}>
+              {(Platform.OS === 'ios') ?
+                  <ActivityIndicatorIOS color={this.props.color} size={this.props.size} />:
+                  <ProgressBar styleAttr={this.props.size} color={this.props.color}/>}
+              <Text style={customStyles.text}>{this.props.text}</Text>
+            </View>
           </View>
-        </View>
       )
     };
   }
