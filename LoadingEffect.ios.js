@@ -4,38 +4,39 @@ var React = require('react-native');
 var ProgressBar = require('ProgressBarAndroid');
 
 var {
-    StyleSheet,
-    ActivityIndicatorIOS,
-    View,
-    Text,Platform
-    } = React;
-
+  StyleSheet,
+  ActivityIndicatorIOS,
+  View,
+  Text,
+  Platform,
+  ProgressBarAndroid,
+} = React;
 
 var LoadingEffectMixin = {
 
   getInitialState() {
     return {
-      isVisible: false
+      isVisible: false,
     };
   },
 
   showLoadingEffect() {
     this.setState({
-      isVisible: true
+      isVisible: true,
     });
   },
 
   dismissLoadingEffect() {
     this.setState({
-      isVisible: false
+      isVisible: false,
     });
-  }
-}
+  },
+};
 
 var LoadingEffect = React.createClass({
 
   statics: {
-    Mixin: LoadingEffectMixin
+    Mixin: LoadingEffectMixin,
   },
 
   propTypes: {
@@ -56,48 +57,48 @@ var LoadingEffect = React.createClass({
       overlayWidth: 80,
       overlayHeight: 80,
       overlayColor: 'rgba(0,0,0,0.6)',
-      size: (Platform.OS === "ios") ? "large" : "SmallInverse",
-      color: (Platform.OS === "ios") ? "gray" : "white",
+      size: (Platform.OS === 'ios') ? 'large' : 'SmallInverse',
+      color: (Platform.OS === 'ios') ? 'gray' : 'white',
       text: 'Loading',
       textColor: '#eeeeee',
-      textFontSize: 14
+      textFontSize: 14,
     };
   },
 
   render() {
-    var customStyles = StyleSheet.create({
+    let customStyles = StyleSheet.create({
       overlay: {
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 10,
         backgroundColor: this.props.overlayColor,
         width: this.props.overlayWidth,
-        height: this.props.overlayHeight
+        height: this.props.overlayHeight,
       },
 
       text: {
         color: this.props.textColor,
         fontSize: this.props.textFontSize,
-        marginTop: 8
-      }
-    })
+        marginTop: 8,
+      },
+    });
 
     if (!this.props.isVisible) {
-      return (<View />)
+      return (<View />);
     } else {
       return (
           <View style={styles.container}>
             <View style={customStyles.overlay}>
               {(Platform.OS === 'ios') ?
-                  <ActivityIndicatorIOS color={this.props.color} size={this.props.size} />:
-                  <ProgressBar styleAttr={this.props.size} color={this.props.color}/>}
+                  <ActivityIndicatorIOS color={this.props.color} size={this.props.size} /> :
+                  <ProgressBarAndroid styleAttr={this.props.size} color={this.props.color}/>}
               <Text style={customStyles.text}>{this.props.text}</Text>
             </View>
           </View>
-      )
+      );
     };
-  }
-})
+  },
+});
 
 var styles = StyleSheet.create({
   container: {
@@ -109,9 +110,7 @@ var styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-  }
+  },
 });
 
-
 module.exports = LoadingEffect;
-
