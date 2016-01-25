@@ -16,8 +16,8 @@
     "ios",
     "loading"
   ],
-  "dependencies": {
-    "react-native": "^0.8.0"
+  "peerDependencies": {
+    "react-native": ">=0.8.0"
   },
   "author": "iliker",
   "license": "ISC"
