@@ -2,7 +2,7 @@
   "name": "react-native-loading-effect",
   "version": "1.0.5",
   "description": "a simple loading effect, based on ActivityIndicatorIOS Component",
-  "main": "LoadingEffect.js",
+  "main": "LoadingEffect.ios.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
